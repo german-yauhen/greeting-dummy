@@ -21,10 +21,9 @@ pipeline {
         }
         stage('Echo build number') {
             steps {
-                echo 'Build number is ${currentBuild.number}'
-                echo 'Build displayName is ${currentBuild.displayName}'
-                echo 'Build name is ${currentBuild.name}'
-            }
+                echo "Build number is ${currentBuild.number}"
+                echo "Build displayName is ${currentBuild.displayName}"
+                echo "Build name is ${currentBuild.name}"            }
         }
     }
 }
