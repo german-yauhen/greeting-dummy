@@ -21,9 +21,13 @@ pipeline {
         }
         stage('Echo build number') {
             steps {
+//                 script {
+//                     def gitCommit = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
+//                     currentBuild.displayName = "#${currentBuild.number} - ${gitCommit}"
+//                 }
                 echo "Build number is ${currentBuild.number}"
-                echo "Build displayName is ${currentBuild.displayName}"
-                echo "Build name is ${currentBuild.name}"            }
+                echo "Build displayName is ${currentBuild.changeSets[commitId]}"
+            }
         }
     }
 }
