@@ -9,7 +9,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage("Test") {
+        stage('Test') {
             steps {
                 sh 'mvn test'
             }
@@ -18,6 +18,11 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
+        }
+        stage('Echo build number') {
+            echo 'Build number is ${currentBuild.number}'
+            echo 'Build displayName is ${currentBuild.displayName}'
+            echo 'Build name is ${currentBuild.name}'
         }
     }
 }
