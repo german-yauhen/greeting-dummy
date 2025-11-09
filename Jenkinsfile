@@ -23,10 +23,10 @@ pipeline {
             steps {
                 script {
                     def gitCommit = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
-                    currentBuild.displayName = "#${currentBuild.number} - ${gitCommit}"
+                    currentBuild.displayName = "${gitCommit}"
                 }
                 echo "Build number is ${currentBuild.number}"
-                echo "Build displayName is ${currentBuild.displayName}"
+                echo "The commit that relates to the build is ${currentBuild.displayName}"
             }
         }
     }
